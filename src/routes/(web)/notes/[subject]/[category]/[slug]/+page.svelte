@@ -10,6 +10,13 @@
 	<meta property="og:title" content={data.meta.title} />
 </svelte:head>
 
+<div class="mb-4 text-nvim-gray">
+	<a href="/notes" class="text-nvim-blue hover:underline">notes</a> /
+	<a href="/notes/{data.subject}" class="text-nvim-blue hover:underline">{data.subject}</a> /
+	<a href="/notes/{data.subject}/{data.category}" class="text-nvim-blue hover:underline">{data.category}</a> /
+	<span class="text-nvim-fg">{data.meta.title}</span>
+</div>
+
 <article class="max-w-3xl mx-auto px-4 py-8">
 	<hgroup class="mb-6">
 		<h1 class="text-4xl font-bold text-nvim-fg mb-2">{data.meta.title}</h1>
