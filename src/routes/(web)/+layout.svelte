@@ -285,8 +285,8 @@
 
     // update cursor style by changing the location of the cursor
     function updateCursorStyle() {
-        cursorStyle = lines[cursorRow][cursorCol] ? 
-            `left: ${lines[cursorRow][cursorCol].rect.left}px; 
+        cursorStyle = lines[cursorRow][cursorCol] ?
+            `left: ${lines[cursorRow][cursorCol].rect.left}px;
             top: ${lines[cursorRow][cursorCol].rect.y}px; 
             width: ${lines[cursorRow][cursorCol].rect.width}px; 
             height: ${lines[cursorRow][cursorCol].rect.height}px;` : '';
@@ -323,7 +323,7 @@
         </div>
         <main bind:this={mainElement} class="flex-1 overflow-y-auto p-4 relative" on:scroll={handleScroll}>
             <slot></slot>
-            <div 
+            <div
                 class="absolute bg-nvim-cursor opacity-50"
                 style={showCursor ? cursorStyle : 'display: none;'}
             ></div>

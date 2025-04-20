@@ -27,6 +27,28 @@
 	</div>
 </article>
 
+<div class="max-w-3xl mx-auto px-4 py-8 flex justify-between">
+	{#if data.prevNote}
+		<a href="/notes/{data.subject}/{data.category}/{data.prevNote.slug}" class="text-nvim-blue hover:underline">
+			← {data.prevNote.title}
+		</a>
+	{:else}
+		<span class="text-nvim-gray">First Note</span>
+	{/if}
+
+	<a href="/notes/{data.subject}/{data.category}" class="text-nvim-blue hover:underline">
+		↑ All {data.category} Notes
+	</a>
+
+	{#if data.nextNote}
+		<a href="/notes/{data.subject}/{data.category}/{data.nextNote.slug}" class="text-nvim-blue hover:underline">
+			{data.nextNote.title} →
+		</a>
+	{:else}
+		<span class="text-nvim-gray">Last Note</span>
+	{/if}
+</div>
+
 <style lang="postcss">
 	:global(.prose) {
 		@apply text-nvim-fg;

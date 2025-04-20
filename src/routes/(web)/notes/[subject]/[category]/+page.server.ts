@@ -17,11 +17,12 @@ async function getNotes(subjectSlug: string, categorySlug: string) {
       notes.push(note);
     }
   }
-  
+
+  notes.sort((a, b) => a.title.localeCompare(b.title));
   return notes;
 }
 
 export async function load({ params }) {
-  let notes = await getNotes(params.subject, params.category);
+  const notes = await getNotes(params.subject, params.category);
   return { notes, subject: params.subject, category: params.category };
 }
