@@ -7,6 +7,11 @@
   <meta property="og:title" content="lnjng's Notes" />
 </svelte:head>
 
+<div class="mb-4 text-nvim-gray">
+  <a href="/notes" class="text-nvim-blue hover:underline">notes</a> /
+  <span class="text-nvim-fg">{data.subject}</span>
+</div>
+
 <div class="flex flex-col h-full pl-6 pt-4">
     <h2 class="text-nvim-blue font-bold mb-2">{data.subject} Category Index</h2>
     <ul class="list-none p-0 m-0">
