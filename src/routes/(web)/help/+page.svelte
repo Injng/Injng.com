@@ -8,7 +8,7 @@
         In particular, though, keep in mind:
     </p>
     <p class="mt-4 text-nvim-gray">
-        Type <span class="text-nvim-blue">:home&lt;Enter&gt;</span> to return to the home page
+        Type <span class="text-nvim-blue">:h&lt;Enter&gt;</span> to return to the home page
     </p>
     <p>
         And vice versa for the other pages (see the Command Mode section below for more details).
@@ -73,7 +73,7 @@
                 <code>:about</code>
                 : Go to the about page</li>
             <li>
-                <code>:h</code>
+                <code>:help</code>
                 : Go to the help page</li>
         </ul>
         <p>To exit Command mode without executing a command, press Esc.</p>
