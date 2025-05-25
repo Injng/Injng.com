@@ -268,7 +268,7 @@
             }
           }
         } else if (cmd === ':notes' || cmd === ':n') {
-          window.location.href = '/notes';
+          window.location.href = 'https://notes.lnjng.com';
         }
     }
 
@@ -336,7 +336,7 @@
             <a href="/" on:click|preventDefault={() => {goToPage("/")}} class={linkStyles[0]}>Home</a>
             <a href="/blog" on:click|preventDefault={() => {goToPage("/blog")}} class={linkStyles[1]}>Blog</a>
             <a href="/about" on:click|preventDefault={() => {goToPage("/about")}} class={linkStyles[2]}>About</a>
-            <a href="/notes" on:click|preventDefault={() => {goToPage("/notes")}} class={linkStyles[3]}>Notes</a>
+            <a href="/notes" on:click|preventDefault={() => {goToPage("https://notes.lnjng.com")}} class={linkStyles[3]}>Notes</a>
         </div>
         <div id="position" class="ml-2">{cursorRow + 1}:{cursorCol + 1}</div>
     </div>
