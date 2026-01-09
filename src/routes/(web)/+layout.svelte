@@ -26,11 +26,14 @@
     let movementCol = 0;
 
     // whether or not the cursor was at the last column when moving up or down
-    let movementLast = true;
+    let movementLast = false;
 
     // whether or not to show the cursor and where to show the cursor
     $: showCursor = false;
     $: cursorStyle = 'display: none;';
+
+    // block vim cursor during home page animation
+    let animationInProgress = false;
 
     // monitor the cursor's position within the viewport
     let viewTop = 0;
@@ -40,10 +43,43 @@
     onMount(() => {
         updateCharacters();
         viewBottom = window.innerHeight;
-        window.addEventListener('resize', () => {
+
+        const handleResize = () => {
             viewBottom = window.innerHeight;
-        });
+        };
+        window.addEventListener('resize', handleResize);
         updatePage();
+
+        // Listen for home page animation start to block vim cursor
+        const handleAnimationStart = () => {
+            animationInProgress = true;
+            showCursor = false;
+        };
+        window.addEventListener('homeAnimationStart', handleAnimationStart);
+
+        // Listen for home page animation completion to position cursor
+        const handleAnimationComplete = () => {
+            animationInProgress = false;
+            // Wait a bit for DOM to update, then refresh characters and position cursor
+            setTimeout(() => {
+                updateCharacters();
+                if (lines.length > 0) {
+                    cursorRow = 0;
+                    cursorCol = lines[0].length - 1;
+                    movementCol = cursorCol;
+                    movementLast = true;
+                    showCursor = true;
+                    updateCursorStyle();
+                }
+            }, 50);
+        };
+        window.addEventListener('homeAnimationComplete', handleAnimationComplete);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+            window.removeEventListener('homeAnimationStart', handleAnimationStart);
+            window.removeEventListener('homeAnimationComplete', handleAnimationComplete);
+        };
     });
 
     afterUpdate(() => {
@@ -54,6 +90,14 @@
         const newPage = window.location.pathname === '/' ? 'Home' : window.location.pathname.slice(1).charAt(0).toUpperCase() + window.location.pathname.slice(2);
         if (newPage !== page) {
             page = newPage;
+            // Reset cursor position when navigating to new page
+            cursorRow = 0;
+            cursorCol = 0;
+            movementCol = 0;
+            movementLast = false;
+            showCursor = false;
+            // Update character tracking for new page content
+            setTimeout(() => updateCharacters(), 50);
         }
     }
 
@@ -186,6 +230,7 @@
 
     async function moveCursor(key: string) {
         if (lines.length === 0) return;
+        if (animationInProgress) return;
 
         showCursor = true;
         switch (key) {
