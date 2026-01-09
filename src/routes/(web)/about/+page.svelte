@@ -11,7 +11,7 @@
   
   <div class="prose prose-invert max-w-none">
     <p class="mb-4">
-      I’m a high school student passionate about computer science. Join me in having fun through recreational programming!
+      I’m a first-year student at UC Berkeley passionate about computer science.
     </p>
     <h2 class="text-xl font-bold text-nvim-purple mt-8 mb-4">Random quotes I find insightful:</h2>
     <p class="border-l-4 border-nvim-gray pl-4 italic my-4">

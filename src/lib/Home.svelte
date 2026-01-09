@@ -9,8 +9,6 @@
         <p class="mb-4">Lin Jiang</p>
         <p class="mb-2"></p>
         <a href="https://github.com/Injng" class="mb-4 hover:underline">github.com/Injng</a>
-        <br>
-        <a href="https://hg.sr.ht/~lnjng" class="mb-4 hover:underline">hg.sr.ht/~lnjng</a>
         <div class="p-8 text-nvim-green text-left">
             <p>type  :about<span class="text-nvim-blue">&lt;Enter&gt;</span>            to view about information</p>
             <p>type  :blog<span class="text-nvim-blue">&lt;Enter&gt;</span>             to view blog posts</p>
