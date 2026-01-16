@@ -11,7 +11,7 @@ We often see the complexity of some codebase being described in terms of how man
 code, while some other projects attempt to do more with less lines of code. Yet, it is also
 apparent that, especially for smaller projects, the number of lines of code isn't a very accurate
 depiction of how complex that project actually is. Comments, constructors across multiple lines,
-and similar style choices that make what /could have been one line/ into multiple lines of code
+and similar style choices that make what *could have been one line* into multiple lines of code
 all inflate this flawed metric.
 
 But, a reason why LOC is the metric that has stuck is because of how simple it is. It is trivial
